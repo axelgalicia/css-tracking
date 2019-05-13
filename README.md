@@ -62,7 +62,8 @@ $ npm install
 $ npm start
 ```
 
-Then open the index.html using a server or using Go Live from VS Code and type something. 
+Open the browser on http://localhost:3000/index.html and start typing.
+
 
 Server will capture it.
 
